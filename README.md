@@ -1,10 +1,10 @@
 # Ortholog-Finder-Tool
 
-Project aim is to find the most relevant functional protein to a given list of proteins. Currently we are using five different species (S. pombe, S. cerevisiae, D. melanogaster, H. sapiens and A. thaliana) for model organisms, while we integrated several orthologous and protein-protein (PPI) databases to our tool. Details can be found in the script itself.
+Project aim is to find the most relevant functional protein to a given list of proteins. Currently we are using five different species (S. pombe, S. cerevisiae, D. melanogaster, H. sapiens and A. thaliana) for model organisms, while we integrated several orthologous and protein-protein (PPI) databases to our tool. Details can be found in the script and below.
 
 # Usage
 
-Nearly identical version of this tool can be found here: http://www.orthologfindertool.com
+Nearly identical version of this tool can be found and edited here: http://www.orthologfindertool.com
 
 # Version
 
@@ -13,6 +13,37 @@ Current Public version is 1.0
 # Comments
 
 Please send any comments to: Zoltán Dul <zoltan.dul@kcl.ac.uk>
+
+# Resources & External code sources
+
+This Code uses scripts from ...
+
+	Blagoj Janevski's ip2country Script under GNU GPL v2 license (http://phpweby.com/software/ip2country)
+	jQuery v1.11.2 under MIT license
+	jQuery DataTables v1.10.5 under MIT license
+
+Protein information from published articles ...
+
+	Ashburner et al, 2000 PubMed id: 10802651 (Gene Ontology, for A. thaliana)
+	Jorgensen et al, 2002 PubMed id: 12089449 (for S. cerevisiae)
+	Neumann et al, 2010, PubMed id: 20360735 (for S. cerevisiae)
+	Mortetto et al, 2013, PubMed id: 24217298 (for D. melanogaster)
+	Hayles et al, 2013, PubMed id: 23697806 (for S. pombe)
+	Graml et al, 2014, PubMed id: 25373780  (for H. sapiens)
+
+External database usage ...
+
+	BioGRID
+	COG/KOG
+	eggNOG
+	Ensembl BioMart tool
+	HomoloGene
+	intAct
+	inParanoid
+	KEGG
+	orthoMCL
+	PomBase website (http://www.pombase.org/)
+	UniProt.org Tools (http://www.uniprot.org/)
 
 # License
 
