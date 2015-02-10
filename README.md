@@ -1,10 +1,14 @@
 # Ortholog-Finder-Tool
 
-Project aim is to find the most relevant functional protein to a given list of proteins. Currently we are using five different species (S. pombe, S. cerevisiae, D. melanogaster, H. sapiens and A. thaliana) for model organisms, while we integrated several orthologous and protein-protein (PPI) databases to our tool.
+Project aim is to find the most relevant functional protein to a given list of proteins. Currently we are using five different species (S. pombe, S. cerevisiae, D. melanogaster, H. sapiens and A. thaliana) for model organisms, while we integrated several orthologous and protein-protein (PPI) databases to our tool. Details can be found in the script itself.
 
 # Usage
 
 Nearly identical version of this tool can be found here: http://www.orthologfindertool.com
+
+# Version
+
+Current Public version is 1.0
 
 # Comments
 
@@ -26,4 +30,4 @@ You should have received a copy of the GNU General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-Please alway copyleft your redistirubtion :)
+Please always copyleft your redistirubtion :)
