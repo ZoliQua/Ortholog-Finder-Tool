@@ -67,6 +67,7 @@ class MyLogPHP extends ip2country{
 	function getBrowser() {
 
 	    $u_agent = $_SERVER['HTTP_USER_AGENT'];
+	    $ub = "Unknown";
 	    $bname = 'Unknown';
 	    $platform = 'Unknown';
 	    $version= "";
@@ -75,6 +76,7 @@ class MyLogPHP extends ip2country{
 	    if (preg_match('/linux/i', $u_agent)) $platform = 'linux';
 	    elseif (preg_match('/macintosh|mac os x/i', $u_agent)) $platform = 'mac';
 	    elseif (preg_match('/windows|win32/i', $u_agent)) $platform = 'windows';
+	    elseif (preg_match('/google|googlebot/i', $u_agent)) $platform = 'bot';
 
 	    // Browser
 	    if(preg_match('/MSIE/i',$u_agent) && !preg_match('/Opera/i',$u_agent))
@@ -106,6 +108,11 @@ class MyLogPHP extends ip2country{
 	    {
 	        $bname = 'Netscape';
 	        $ub = "Netscape";
+	    }
+	    elseif(preg_match('/Google/i',$u_agent))
+	    {
+	        $bname = 'Google';
+	        $ub = "Google";
 	    }
 
 	    // finally get the correct version number
