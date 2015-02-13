@@ -102,14 +102,32 @@
 	</div>
 	</div>
 
+<!-- Google Analytics START //-->
 
-<div id="main-content">
-<h2><a href name='zero'></a><?php print $this_page_title; ?></h2>
-<div id="center"><?php include_once($this_page_include); ?></div>
-<div id="gototop"><a href='#zero'>Go to the top</a></div>
-<div id="netbiol">&copy; <?php echo date("Y"); ?> <a href="http://www.kcl.ac.uk/index.aspx" target="_blank" class="pagebottomlink">King's College London</a> & <a href="http://www.fmach.it/" target="_blank" class="pagebottomlink">Fondazione Edmund Mach</a></div>
-<div class="bottompage"></div>
-</div>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-28455960-3', 'auto');
+	  ga('send', 'pageview');
+	  ga(‘set’, ‘&uid’, {{USER_ID}}); // Set the user ID using signed-in user_id.
+
+	</script>
+
+<!-- Google Analytics END //-->
+
+	<div id="main-content">
+		<h2><a href name='zero'></a><?php print $this_page_title; ?></h2>
+
+		<div id="center"><?php include_once($this_page_include); ?></div>
+
+		<div id="gototop"><a href='#zero'>Go to the top</a></div>
+		<div id="netbiol">&copy; <?php echo date("Y"); ?> <a href="http://www.kcl.ac.uk/index.aspx" target="_blank" class="pagebottomlink">King's College London</a> & <a href="http://www.fmach.it/" target="_blank" class="pagebottomlink">Fondazione Edmund Mach</a></div>
+		<div class="bottompage"></div>
+	</div>
+
 </div>
 </body>
 </html>

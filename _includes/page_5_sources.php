@@ -146,3 +146,13 @@
 	<TD><a href="http://www.uniprot.org/" target="_blank">http://www.uniprot.org/ <IMG src="_media/images/linkout.png" style="border: 0px;"></a></TD>
 </TR>
 </TABLE>
+
+<p><BR></p>
+
+<h3>Source code</h3>
+
+<p><BR></p>
+
+<p>All source files such as codes and files are publicly available in my GitHub repository on the following address:</p>
+<p><a href="https://github.com/ZoliQua/Ortholog-Finder-Tool" target="_blank">https://github.com/ZoliQua/Ortholog-Finder-Tool</a></p>
+<p><img src="_media/images/github_logo.png"></p>
