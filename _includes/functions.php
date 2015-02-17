@@ -27,10 +27,10 @@
 
 class FajlBeolvas {
 
-	public $szetszed1 = "\n";
-	public $szetszed2 = "\r";
-	public $fajl_teljes;
-	public $fajl_tomb;
+	public $splitter1 = "\n";
+	public $splitter2 = "\r";
+	public $FileFull;
+	public $FileWhole;
 	public $faj_info;
 	public $path_info;
 
@@ -38,14 +38,14 @@ class FajlBeolvas {
 
 		$hiba = "";
 
-		$fajl_beolvas = fopen($fajl,"r");
-		if(!$fajl_beolvas) $hiba .= "Nem tudtam beolvasni a <b>". $fajl ."</b> fájlt (lekérő) hozzáadásra!";
+		$Filebeolvas = fopen($fajl,"r");
+		if(!$Filebeolvas) $hiba .= "Nem tudtam beolvasni a <b>". $fajl ."</b> fájlt (lekérő) hozzáadásra!";
 
 		if($hiba != "") die($hiba);
 
-		$fajl_tartalom = fread($fajl_beolvas, filesize($fajl));
-		$ujsor = explode($this->szetszed1, $fajl_tartalom);
-		if(count($ujsor) < 100 ) $ujsor = explode($this->szetszed2, $fajl_tartalom);
+		$Filetartalom = fread($Filebeolvas, filesize($fajl));
+		$ujsor = explode($this->splitter1, $Filetartalom);
+		if(count($ujsor) < 100 ) $ujsor = explode($this->splitter2, $Filetartalom);
 
 		$sor = 0;
 		$lekeres_lista = array();
@@ -125,8 +125,8 @@ class FajlBeolvas {
 			}
 		}
 
-		fclose($fajl_beolvas);
-		$this->fajl_tomb = $lekeres_lista;
+		fclose($Filebeolvas);
+		$this->FileWhole = $lekeres_lista;
 		$this->faj_info = $fajinfo;
 		$this->path_info = $path_info;
 
@@ -186,11 +186,11 @@ class Lekeres {
 		$files["dbs"] =  new FajlBeolvas($fajl["data"], "db");
 		$files["regular"] = new FajlBeolvas($fajl["reg"], "reg", "\t");
 
-		$this->kegg = $files["kegg"]->fajl_tomb;
+		$this->kegg = $files["kegg"]->FileWhole;
 		$this->kegg_info = $files["kegg"]->path_info;
-		$this->reactome = $files["reactome"]->fajl_tomb;
-		$this->dbs = $files["dbs"]->fajl_tomb;
-		$this->regular = $files["regular"]->fajl_tomb;
+		$this->reactome = $files["reactome"]->FileWhole;
+		$this->dbs = $files["dbs"]->FileWhole;
+		$this->regular = $files["regular"]->FileWhole;
 
 		$this->files = $files;
 
@@ -247,7 +247,7 @@ class Lekeres {
 
 		/* HEADER END */
 
-		foreach ($this->files[$value_fajnev]->fajl_tomb as $faj_unip => $faj_array) {
+		foreach ($this->files[$value_fajnev]->FileWhole as $faj_unip => $faj_array) {
 
 			// This SOR: Contains my sor in this foreach cycle
 			$this_sor = array();
@@ -528,11 +528,11 @@ class Lekeres {
 
 		$hiba = "";
 
-		$fajl_beolvas = fopen($fajl,"w");
-		if(!$fajl_beolvas) $hiba .= "Nem tudtam beolvasni a <b>". $fajl ."</b> fájlt (lekérő) hozzáadásra!";
+		$Filebeolvas = fopen($fajl,"w");
+		if(!$Filebeolvas) $hiba .= "Nem tudtam beolvasni a <b>". $fajl ."</b> fájlt (lekérő) hozzáadásra!";
 		if($hiba != "") die($hiba);
 
-		fwrite($fajl_beolvas, $mitirjak);
+		fwrite($Filebeolvas, $mitirjak);
 	}
 
 }
