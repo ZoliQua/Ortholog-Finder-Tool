@@ -47,6 +47,9 @@ class MyLogPHP extends ip2country{
 		$this->LOGFILENAME = $mylog;
 		$this->SEPARATOR = $separator;
 		$this->HEADERS =
+			'SERVER_HOST' . $this->SEPARATOR .
+			'SERVER_ADDR' . $this->SEPARATOR .
+			'FILE' . $this->SEPARATOR .
 			'EVENT' . $this->SEPARATOR .
 			'DATETIME' . $this->SEPARATOR .
 			'COUNTRY' . $this->SEPARATOR .
@@ -55,9 +58,10 @@ class MyLogPHP extends ip2country{
 			'BROWSER_NAME' . $this->SEPARATOR .
 			'BROWSER_VERSION' . $this->SEPARATOR .
 			'PLATFORM' . $this->SEPARATOR .
-			'MORE_NFO1' . $this->SEPARATOR .
-			'MORE_NFO2' . $this->SEPARATOR .
-			'FILE';
+			'LANGUAGE' . $this->SEPARATOR .
+			'ACTION_NAME' . $this->SEPARATOR .
+			'ACTION_ADD' . $this->SEPARATOR .
+			'DOCUMENT_ROOT';
 		$this->mysql_host = $conf['host'];
 		$this->db_name = $conf['data'];
 		$this->db_user = $conf['user'];
@@ -67,10 +71,11 @@ class MyLogPHP extends ip2country{
 	function getBrowser() {
 
 	    $u_agent = $_SERVER['HTTP_USER_AGENT'];
+		$httpAcceptLanguage = (isset($_SERVER["HTTP_ACCEPT_LANGUAGE"]) ? $_SERVER["HTTP_ACCEPT_LANGUAGE"] : "Unknown" );
 	    $ub = "Unknown";
 	    $bname = 'Unknown';
 	    $platform = 'Unknown';
-	    $version= "";
+	    $version= "Unknown";
 
 	    // Platform
 	    if (preg_match('/linux/i', $u_agent)) $platform = 'linux';
@@ -129,26 +134,45 @@ class MyLogPHP extends ip2country{
 	        //we will have two since we are not using 'other' argument yet
 	        //see if version is before or after the name
 	        if (strripos($u_agent,"Version") < strripos($u_agent,$ub)){
-	            $version= $matches['version'][0];
+	            $version = $matches['version'][0];
 	        }
 	        else {
-	            $version= $matches['version'][1];
+	            $version = $matches['version'][1];
 	        }
 	    }
 	    else {
-	        $version= $matches['version'][0];
+	        $version = $matches['version'][0];
 	    }
 
 	    // check if we have a number
-	    if ($version==null || $version=="") {$version="?";}
+	    if ($version == null || $version == "Unknown" || empty($version)) {
+			$version = "Unknown";
+		}
 
 	    return array(
-	        'userAgent' => $u_agent,
-	        'name'      => $bname,
-	        'version'   => $version,
+	        'userAgent'	=> $u_agent,
+	        'name'		=> $bname,
+	        'version'	=> $version,
 	        'platform'  => $platform,
-	        'pattern'    => $pattern
+			'language'	=> $httpAcceptLanguage,
+	        'pattern'	=> $pattern
 	    );
+	}
+
+	function getBrowser() {
+
+		$ServerHost = (isset($_SERVER["HTTP_HOST"]) ? $_SERVER["HTTP_HOST"] : "Unknown" );
+		$ServerAddr = (isset($_SERVER["SERVER_ADDR"]) ? $_SERVER["SERVER_ADDR"] : "Unknown" );
+		$ServerMethod = (isset($_SERVER["REQUEST_METHOD"]) ? $_SERVER["REQUEST_METHOD"] : "Unknown" );
+	    $ServerFile = (isset($_SERVER["PHP_SELF"]) ? $_SERVER["PHP_SELF"] : (isset($_SERVER["SCRIPT_NAME"]) ? $_SERVER["SCRIPT_NAME"] : "Unknown" ) );
+
+		return array(
+					$this_server['host'] = $ServerHost,
+					$this_server['addr'] = $ServerHost,
+					$this_server['method'] = $ServerMethod,
+					$this_server['file'] = $ServerFile
+		);
+
 	}
 
 	// Private method that will write the text logs into the $LOGFILENAME.
@@ -168,12 +192,29 @@ class MyLogPHP extends ip2country{
 		}
 
 		$this_browser = $this->getBrowser();
+		$this_server = $this->getServer();
 		$debugBacktrace = debug_backtrace();
-		$file = $debugBacktrace[1]['file'];
+		$document_root = $debugBacktrace[1]['file'];
 		$country = ip2country::get_country_name();
 		$ip = ip2country::get_client_ip();
 
-		$entry = array($event,$datetime,$country,$ip,$this_browser["userAgent"],$this_browser["name"],$this_browser["version"],$this_browser["platform"],$more1,$more2,$file);
+		$entry = array(
+					$event,
+					$this_server['host'],
+					$this_server['addr'],
+					$this_server['method'],
+					$this_server['file'],
+					$more1,
+					$more2,
+					$datetime,
+					$country,
+					$ip,
+					$this_browser["userAgent"],
+					$this_browser["name"],
+					$this_browser["version"],
+					$this_browser["platform"],
+					$this_browser["language"],
+					$document_root );
 
 		fputcsv($fd, $entry, $this->SEPARATOR);
 		fclose($fd);

@@ -40,18 +40,18 @@
 	$values_array["c"] = array("zero", "one", "all");
 	if(!isset($_POST["c"])) $value_ov = "one";
 	elseif(! in_array( strtolower( trim($_POST["c"]) ), $values_array["c"]) OR strtolower( trim($_POST["c"]) ) == "zero") $value_ov = "one";
-	else $value_ov = strtolower(trim($_POST["c"]));
+	else $value_ov = strtolower( trim($_POST["c"]) );
 
 	//FAJ NEVE :: $value_fajnev
 	if(!isset($_POST["q"])) $value_fajnev = "sc";
 	elseif(! array_key_exists( strtolower( trim($_POST["q"]) ), $faj) ) $value_fajnev = "sc";
-	else $value_fajnev = strtolower(trim($_POST["q"]));
+	else $value_fajnev = strtolower( trim($_POST["q"]) );
 
 	//PATHWAY ENRICHMENT :: $value_lines
 	$values_array["p"] = array("zero", "all", "orth", "path", "size_mut1", "size_mut2", "size_mut3", "size_mut4", "same");
 	if(!isset($_POST["p"])) $value_lines = "all";
 	elseif(! in_array( strtolower( trim($_POST["p"]) ), $values_array["p"]) OR strtolower( trim($_POST["p"]) ) == "zero") $value_lines = "all";
-	else $value_lines = strtolower(trim($_POST["p"]));
+	else $value_lines = strtolower( trim($_POST["p"]) );
 
 // INCLUDE PHP script FILES: functions, session
 
@@ -81,7 +81,7 @@
 
 // LOGGING
 
-	$log->logging('NEW QUERY', "organism name is " . $faj[$value_fajnev]["mid"]);
+	$log->logging('QUERY', $faj[$value_fajnev]["mid"], "Details: type:" . $value_ov . ", spec:" . $value_fajnev . ", q-t:" . $value_lines);
 
 ?>
 
