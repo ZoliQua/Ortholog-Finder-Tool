@@ -47,11 +47,14 @@ class MyLogPHP extends ip2country{
 		$this->LOGFILENAME = $mylog;
 		$this->SEPARATOR = $separator;
 		$this->HEADERS =
-			'SERVER_HOST' . $this->SEPARATOR .
-			'SERVER_ADDR' . $this->SEPARATOR .
-			'FILE' . $this->SEPARATOR .
 			'EVENT' . $this->SEPARATOR .
 			'DATETIME' . $this->SEPARATOR .
+			'SERVER_HOST' . $this->SEPARATOR .
+			'SERVER_ADDR' . $this->SEPARATOR .
+			'METHOD' . $this->SEPARATOR .
+			'FILE' . $this->SEPARATOR .
+			'ACTION_NAME' . $this->SEPARATOR .
+			'ACTION_ADD' . $this->SEPARATOR .
 			'COUNTRY' . $this->SEPARATOR .
 			'IP_ADDR' . $this->SEPARATOR .
 			'USER_AGENT' . $this->SEPARATOR .
@@ -59,8 +62,6 @@ class MyLogPHP extends ip2country{
 			'BROWSER_VERSION' . $this->SEPARATOR .
 			'PLATFORM' . $this->SEPARATOR .
 			'LANGUAGE' . $this->SEPARATOR .
-			'ACTION_NAME' . $this->SEPARATOR .
-			'ACTION_ADD' . $this->SEPARATOR .
 			'DOCUMENT_ROOT';
 		$this->mysql_host = $conf['host'];
 		$this->db_name = $conf['data'];
@@ -159,7 +160,7 @@ class MyLogPHP extends ip2country{
 	    );
 	}
 
-	function getBrowser() {
+	function getServer() {
 
 		$ServerHost = (isset($_SERVER["HTTP_HOST"]) ? $_SERVER["HTTP_HOST"] : "Unknown" );
 		$ServerAddr = (isset($_SERVER["SERVER_ADDR"]) ? $_SERVER["SERVER_ADDR"] : "Unknown" );
@@ -167,10 +168,10 @@ class MyLogPHP extends ip2country{
 	    $ServerFile = (isset($_SERVER["PHP_SELF"]) ? $_SERVER["PHP_SELF"] : (isset($_SERVER["SCRIPT_NAME"]) ? $_SERVER["SCRIPT_NAME"] : "Unknown" ) );
 
 		return array(
-					$this_server['host'] = $ServerHost,
-					$this_server['addr'] = $ServerHost,
-					$this_server['method'] = $ServerMethod,
-					$this_server['file'] = $ServerFile
+					'host' => $ServerHost,
+					'addr' => $ServerAddr,
+					'method' => $ServerMethod,
+					'file' => $ServerFile
 		);
 
 	}
@@ -200,13 +201,13 @@ class MyLogPHP extends ip2country{
 
 		$entry = array(
 					$event,
+					$datetime,
 					$this_server['host'],
 					$this_server['addr'],
 					$this_server['method'],
 					$this_server['file'],
 					$more1,
 					$more2,
-					$datetime,
 					$country,
 					$ip,
 					$this_browser["userAgent"],
