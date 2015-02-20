@@ -60,7 +60,7 @@
 
 // LOGGING
 
-	$log->logging('PAGE VISIT', "new visit on page ". $this_page_array[$this_page][0] . " (".$this_page.")");
+	$log->logging('PAGE VISIT', "page request", $this_page_array[$this_page][0] . " (".$this_page.")");
 
 ?>
 <html>
