@@ -167,7 +167,7 @@ class Lekeres {
 			self::Table();
 
 		//Create JSON file & write out in a file for JQuery DataTables
-			self::KiirJSON();
+			self::WriteJSON();
 
 		return true;
 	}
@@ -515,24 +515,29 @@ class Lekeres {
 		return true;
 	}
 
-	private function KiirJSON(){
+	private function WriteJSON(){
 
-		//writes everything out to a JSON file
+		// Create Output Data
+		$OutputData = "{\"aaData\": " . $this->json . "}";
 
-		$mitirjak = "{\"aaData\": " . $this->json . "}";
+		// Create Output File name
 
 		$date = date("ymd_His");
  		$rand = rand(10,99);
- 		$fajl = "_query/jsonquery_" . $date . "_" . $rand . ".txt";
- 		$this->jsonfile = $fajl;
+ 		$OutputFileName = "_query/jsonquery_" . $date . "_" . $rand . ".txt";
+ 		$this->jsonfile = $OutputFileName;
 
-		$hiba = "";
+		// Open JSON file for write
 
-		$Filebeolvas = fopen($fajl,"w");
-		if(!$Filebeolvas) $hiba .= "Nem tudtam beolvasni a <b>". $fajl ."</b> fájlt (lekérő) hozzáadásra!";
-		if($hiba != "") die($hiba);
+		$error = "";
 
-		fwrite($Filebeolvas, $mitirjak);
+		$FileRead = fopen($OutputFileName,"w");
+		if(!$FileRead) $error .= "I can't read <b>". $OutputFileName ."</b> file (QueryFile) to extend!";
+		// if($error != "") die($error);
+
+
+		// Write to JSON file
+		fwrite($FileRead, $OutputData);
 	}
 
 }
