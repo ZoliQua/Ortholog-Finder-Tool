@@ -83,6 +83,10 @@ class MyLogPHP extends ip2country{
 	    elseif (preg_match('/macintosh|mac os x/i', $u_agent)) $platform = 'mac';
 	    elseif (preg_match('/windows|win32/i', $u_agent)) $platform = 'windows';
 	    elseif (preg_match('/google|googlebot/i', $u_agent)) $platform = 'bot';
+	    elseif (preg_match('/facebook/i', $u_agent)) $platform = 'bot';
+	    elseif (preg_match('/bot|crawl/i', $u_agent)) $platform = 'bot';
+
+		$isBot = (( $platform == "bot" ) ? true : false);
 
 	    // Browser
 	    if(preg_match('/MSIE/i',$u_agent) && !preg_match('/Opera/i',$u_agent))
@@ -156,6 +160,7 @@ class MyLogPHP extends ip2country{
 	        'version'	=> $version,
 	        'platform'  => $platform,
 			'language'	=> $httpAcceptLanguage,
+			'isBot'		=> $isBot,
 	        'pattern'	=> $pattern
 	    );
 	}
