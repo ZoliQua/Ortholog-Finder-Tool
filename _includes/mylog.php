@@ -162,6 +162,8 @@ class MyLogPHP extends ip2country{
 
 	function getServer() {
 
+		// Get Server information host-name, server-address, request method and self php file.
+
 		$ServerHost = (isset($_SERVER["HTTP_HOST"]) ? $_SERVER["HTTP_HOST"] : "Unknown" );
 		$ServerAddr = (isset($_SERVER["SERVER_ADDR"]) ? $_SERVER["SERVER_ADDR"] : "Unknown" );
 		$ServerMethod = (isset($_SERVER["REQUEST_METHOD"]) ? $_SERVER["REQUEST_METHOD"] : "Unknown" );
@@ -222,7 +224,6 @@ class MyLogPHP extends ip2country{
 
 	}
 
-
 	public function logging($mit = 'VISIT', $m1 = self::DEFAULT_TAG, $m2 = self::DEFAULT_TAG) {
 
 		self::log($mit, $m1, $m2);
@@ -236,6 +237,8 @@ class MyLogPHP extends ip2country{
 	}
 
 }
+
+// Set $log variable
 
 $log = new MyLogPHP(';', $config);
 

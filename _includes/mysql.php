@@ -46,7 +46,7 @@ function authenticate() {
     exit;
 }
 
-/* PHP+MySQL összekapcsolás és database select */
+/* PHP+MySQL conncect és database select */
 
 header('Content-Type: text/html; charset=UTF-8');
 
