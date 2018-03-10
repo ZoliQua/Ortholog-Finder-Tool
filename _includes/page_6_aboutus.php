@@ -26,33 +26,38 @@
 */
 
 ?>
+<p align="center">
+	<IMG src="_media/images/dul_zoltan_2013public_big.png" alt="Zoltan Dul">
+</p>
+<p align="center">
+<div class=etext style="font-weight: 700;">Zoltán Dul</div>PhD Student<BR> zoltan.dul@kcl.ac.uk<BR>
+</p>
 <div class="page"></div>
 <p align="center">
 	<IMG src="_media/images/logo_kcl.jpg" alt="King's College London">
 </p>
 
 <div class=etext style="font-weight: 700;">
-	<a href="http://www.kcl.ac.uk/lsm/research/divisions/cancer/research/sections/haematooncology/research/cellcycleepigenetics.aspx" target="_blank">Cell Cycle & Epigenetics Team @ King's College London, The Division of Cancer Studies</a>
+	<a href="https://www.kcl.ac.uk/lsm/research/divisions/cancer/research/groups/haematooncology/research/cellcycleepigenetics.aspx" target="_blank">Cell Cycle & Epigenetics Team @ King's College London, The Division of Cancer Studies</a>
 </div><BR>
 
 <div class=etext style="font-weight: 700;">Leader: Prof. N. Shaun B. Thomas</div>nicholas.s.thomas@kcl.ac.uk<BR><BR>
 
 <div class=etext style="font-weight: 700;">
-	<a href="http://www.kcl.ac.uk/biohealth/research/divisions/randall/research/sections/motility/csik%C3%A1sznagy/home.aspx" target="_blank">The Csikász-Nagy Group @ King's College London, The Randall Division of Cell and Molecular Biophysics</a>
+	<a href="https://www.kcl.ac.uk/lsm/research/divisions/randall/research/sections/motility/csik%C3%A1sznagy/home.aspx" target="_blank">The Csikász-Nagy Group @ King's College London, The Randall Division of Cell and Molecular Biophysics</a>
 </div><BR>
 
 <div class=etext style="font-weight: 700;">Leader: Dr. Attila Csikász-Nagy</div> attila.csikasz-nagy@kcl.ac.uk<BR><BR>
-<div class=etext style="font-weight: 700;">PhD Student: Zoltán Dul</div> zoltan.dul@kcl.ac.uk<BR>
 
 
 <p align="center">
 	<IMG src="_media/images/logo_fem.png" alt="Fondazione Edmund Mach">
 </p>
 <div class=etext style="font-weight: 700;">
-	<a href="http://www.fmach.it/eng/Research-and-Innovation-Centre/general-info/organisation/Computational-Biology" target="_blank">Computational Biology Department @ Fondazione Edmund Mach, San Michele All' Adige</a>
-</div><BR><BR>
+	<a href="http://www.fmach.it/eng/CRI/general-info/organisation/Chief-scientific-office/Genomics-and-biology-of-fruit-crop/Biology-and-physiology" target="_blank">Genomics and biology of fruit crop  @ Fondazione Edmund Mach, San Michele All' Adige</a>
+</div><BR>
 <div class=etext style="font-weight: 700;">
-	Key Participants:<BR>Dr. Azeddine Si Ammour, Dr. Attila Csikasz-Nagy
+	Group Leader: Dr. Azeddine Si Ammour
 </div>
-azeddine.siammour@fmach.it, attila.csikasz-nagy@fmach.it
+azeddine.siammour@fmach.it
 <BR>

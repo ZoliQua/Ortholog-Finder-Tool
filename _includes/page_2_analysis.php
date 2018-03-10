@@ -55,7 +55,7 @@
 
 // INCLUDE PHP script FILES: functions, session
 
-	include_once("functions.php");
+	#include_once("functions.php");
 
 // INCLUDE DATA FILES
 
@@ -77,27 +77,17 @@
 
 // QUERY
 
-	$lekeres = new Lekeres ($fajl, $values);
+	#$lekeres = new Lekeres ($fajl, $values);
 
 // LOGGING
 
 	$log->logging('QUERY', $faj[$value_fajnev]["mid"], "Details: type:" . $value_ov . ", spec:" . $value_fajnev . ", q-t:" . $value_lines);
 
+// INCLUDE FILE
+
+	include_once("page_2_analysis_" . $value_fajnev . ".php");
+
 ?>
-
-<H1><?php echo $faj[$value_fajnev]["long"] . " Orthologs"; ?></H1>
-<BR>
-
-<I>Dear Visitor, Some queries downland may take up to 60 seconds to load into the table. Please be patient.</I>
-
-<BR><BR>
-
-<!--  MAIN TABLE - START //-->
-	<?php print $lekeres->print_table; ?>
-<!--  MAIN TABLE - END //-->
-
-
-<p>Download as <a href="download.php?file=<?php print $lekeres->jsonfile; ?>"> CSV file</A>.</p>
 
 <!--  DATATABLE JAVASCRIPT - START //-->
 	<script type="text/javascript">
@@ -110,7 +100,7 @@
 				"sPaginationType": "full_numbers",
 				//"sDom": 'T<"fg-toolbar ui-widget-header ui-corner-tl ui-corner-tr ui-helper-clearfix"lfr>t<"fg-toolbar ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix"ip>',
 		        "aLengthMenu": [[5, 10, 20, 50, 100, 200, 300, 400, 3000], [5, 10, 20, 50, 100, 200, 300, 400, 3000]],
-		        "sAjaxSource": '<?php print $lekeres->jsonfile; ?>'
+		        "sAjaxSource": '_query/jsonquery_<?php print $value_fajnev; ?>.txt'
 		    } );
 		} );
 
