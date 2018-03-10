@@ -35,7 +35,6 @@
 		<TD align="center" width="50%"><div class=ctext>Dataset:</div></TD>
 		<TD align="center" width="50%"><div class=dtext >
 	    	<SELECT name="c" id="value_c">
-				<OPTION value="zero">(choose)</OPTION>
 				<OPTION value="one">One species orthological relation</OPTION>
 	 		</SELECT> &nbsp;</div>
 	 	</TD>
@@ -63,7 +62,6 @@
 		<TD align="center" width="50%"><div class=ctext>Function: </div></TD>
 		<TD align="center" width="50%"><div class=dtext >
 	    	<SELECT name="p" id="value_p">
-				<OPTION value="zero">(choose)</OPTION>
 				<OPTION value="orth">cell size function</OPTION>
 	 		</SELECT> &nbsp;</div>
 	 	</TD>

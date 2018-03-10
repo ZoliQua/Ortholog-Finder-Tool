@@ -42,7 +42,7 @@ class MyLogPHP extends ip2country{
 	const DEFAULT_TAG = '--';
 
 	// CONSTRUCTOR
-	function MyLogPHP($separator = ';', $conf) {
+	function __construct($separator = ';', $conf) {
 		$mylog = '_log/sitelog_'.date("Ym").'.csv';
 		$this->LOGFILENAME = $mylog;
 		$this->SEPARATOR = $separator;

@@ -34,7 +34,7 @@ class FajlBeolvas {
 	public $faj_info;
 	public $path_info;
 
-	public function FajlBeolvas($fajl, $type, $separator = ";") {
+	public function __construct($fajl, $type, $separator = ";") {
 
 		$hiba = "";
 
@@ -151,7 +151,7 @@ class Lekeres {
 	private $actual_return_string = "";
 	private $QueryLevel;
 
-	public function Lekeres ($fajl, $values){
+	public function __construct($fajl, $values){
 
 		// MAIN THREAD FUNCTION
 

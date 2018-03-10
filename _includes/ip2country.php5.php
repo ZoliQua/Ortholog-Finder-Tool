@@ -57,7 +57,7 @@ class ip2country {
 	public $country_name='';
 	public $con=false;
 
-	function ip2country($conf)
+	function __construct($conf)
 	{
 		$this->mysql_host = $conf['host'];
 		$this->db_name = $conf['data'];
@@ -162,7 +162,7 @@ class ip2country {
 
 	public function close()
 	{
-		@mysql_close($this->con);
+		@mysqli_close($this->con);
 		$this->con=false;
 	}
 }
