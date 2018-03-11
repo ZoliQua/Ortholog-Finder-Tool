@@ -299,9 +299,9 @@ class Lekeres {
 
 			$IsSamePathway = self::PathWayAnalyzer($PathwaysContainer, $value_lines);
 
-            //if($Numero_MoreThanOne) continue;
+            // if($Numero_MoreThanOne) continue;
 
-			//if( ($EmptyFieldsCount > 3) ) continue;
+			// if( ($EmptyFieldsCount > 3) ) continue;
 
 			if( (in_array($value_lines, $QueryLevel["2"])) && ($EmptyFieldsCount != 0) ) continue;
 
