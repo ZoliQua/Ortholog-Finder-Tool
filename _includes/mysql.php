@@ -50,10 +50,10 @@ function authenticate() {
 
 header('Content-Type: text/html; charset=UTF-8');
 
-$config['host'] = 'ortholog_host'; //host name
-$config['user'] = 'ortholog_user'; //database username
-$config['pass'] = 'ortholog_pass'; //database password
-$config['data'] = 'ortholog_data'; //selected database name
+$config['host'] = 'localhost'; //host name
+$config['user'] = 'root'; //database username
+$config['pass'] = 'zolis'; //database password
+$config['data'] = 'ortholog'; //selected database name
 
 $mysqli = new mysqli($config['host'], $config['user'], $config['pass'], $config['data']);
 

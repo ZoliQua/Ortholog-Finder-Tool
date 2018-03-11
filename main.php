@@ -56,7 +56,7 @@ ini_set('max_execution_time', '-1');
 	$this_page_array = array();
 
 	$this_page_array[1] = array("QUERY","page_1_form.php");
-	$this_page_array[2] = array("QUERY RESULTS","page_2_analysis.php");
+	$this_page_array[2] = array("QUERY RESULTS","page_2_analysis_original.php");
 	$this_page_array[5] = array("Sources","page_5_sources.php");
 	$this_page_array[6] = array("About us","page_6_aboutus.php");
 
