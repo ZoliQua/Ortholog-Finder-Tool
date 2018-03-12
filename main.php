@@ -101,6 +101,7 @@ ini_set('max_execution_time', '-1');
 		<ul class="menu">
 			<li><a href='<?php print $this_file; ?>?mit=query'>QUERY</a></li>
 			<li><a href='<?php print $this_file; ?>?mit=source'>REFERENCES</a></li>
+			<li><a href='http://go.orthologfindertool.com/'>LINK TO GO-TOOL</a></li>
 			<li><a href='<?php print $this_file; ?>?mit=about'>ABOUT US</a></li>
 		</ul>
 		</div>

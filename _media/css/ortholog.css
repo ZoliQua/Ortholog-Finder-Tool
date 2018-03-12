@@ -34,12 +34,12 @@ h4 { font-size: 24px;}
 a:link, a:visited { text-decoration: none; color: blue;}
 a:hover { text-decoration: underline; color: red;}
 
-#header { background:url(../images/ortholog_logo2.png) top center no-repeat; position:relative; height:130px; width:1260px; margin:0 auto; border-bottom:1px solid green;}
+#header { background:url(../images/ortholog_logo3A.png) top center no-repeat; position:relative; height:130px; width:1260px; margin:0 auto; border-bottom:1px solid green;}
 #header-w {position:relative;}
 
 #wrapper { margin:0 auto; width:1260px; padding:0;position: relative;}
 #nav {background: none;height:28px; background:url(../images/nav2.png) 0 0 repeat-x; font-family: segoe ui, verdana, arial, sans-serif; text-align:center;  }
-#nav-inside { margin-left: auto; margin-right: auto; width: 413px;  }
+#nav-inside { margin-left: auto; margin-right: auto; width: 641px;  }
 
 #nav ul {margin:0; padding:0; float:left; }
 #nav ul li {list-style:none;float:left;height:28px;position:relative; padding:0; margin:0; border-right: 1px dotted gray;}
