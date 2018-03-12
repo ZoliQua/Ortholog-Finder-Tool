@@ -199,6 +199,12 @@ div.etext {
 	text-align: center;
 	font-size: 16px;
 	}
+div.species-text {
+	text-align: center;
+	font-size: 20px;
+	font-weight: 700;
+	color: #545554;
+	}
 div.databox {
 	padding: 2px;
 	margin-left: 200px;

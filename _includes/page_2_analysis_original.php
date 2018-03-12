@@ -5,23 +5,30 @@
 * *******************
 * Project Name: Ortholog Finder Tool
 * Project Website: http://orthologfindertool.com
-* Project Version: Public Version 1.0
-* Project Manager: Copyright (c) Zoltan Dul, 2005
+* Project Version: Public Version 1.5
 *
-* Project Code Source: https://github.com/ZoliQua
-* Project Email: zoltan.dul@kcl.ac.uk
+* Project Source Code: https://github.com/ZoliQua/Ortholog-Finder-Tool
+*
+* Author: Zoltan Dul, 2018
+* Email: zoltan.dul@kcl.ac.uk and zoltan.dul@gmail.com
+* Twitter: @ZoliQa
 *
 * DESCRIPTION
 * ****************
 * A bioinformatics tool that collects evolutionarily conserved proteins, which have been described
-* as a funcional regulators in genome-wide studies previously. Currently it focueses on cell size.
+* as a funcional regulators in genome-wide studies previously. It focueses on cell size.
 *
 * PHP FILE
-* ****************
-* Page - Functional Analysis File
-* ****************
+* *******************
+* Page - ANALYSIS File // NOT in USE at this version
+* *******************
+*
+* This file handles analysis.
+*
+* *******************
 *
 * All code can be used under GNU General Public License version 2.
+* If you have any question or find some bug please email me.
 *
 */
 
