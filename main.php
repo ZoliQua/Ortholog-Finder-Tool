@@ -5,30 +5,39 @@
 * *******************
 * Project Name: Ortholog Finder Tool
 * Project Website: http://orthologfindertool.com
-* Project Version: Public Version 1.0
-* Project Manager: Copyright (c) Zoltan Dul, 2005
+* Project Version: Public Version 1.5
 *
-* Project Code Source: https://github.com/ZoliQua
-* Project Email: zoltan.dul@kcl.ac.uk
+* Project Source Code: https://github.com/ZoliQua/Ortholog-Finder-Tool
+*
+* Author: Zoltan Dul, 2018
+* Email: zoltan.dul@kcl.ac.uk and zoltan.dul@gmail.com
+* Twitter: @ZoliQa
 *
 * DESCRIPTION
 * ****************
 * A bioinformatics tool that collects evolutionarily conserved proteins, which have been described
-* as a funcional regulators in genome-wide studies previously. Currently it focueses on cell size.
+* as a funcional regulators in genome-wide studies previously. It focueses on cell size.
 *
 * PHP FILE
-* ****************
+* *******************
 * Page - MAIN File
-* ****************
+* *******************
+*
+* This file handles other PHP files.
+*
+* *******************
 *
 * All code can be used under GNU General Public License version 2.
+* If you have any question or find some bug please email me.
 *
 */
 
+/*
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 ini_set('memory_limit', '-1');
 ini_set('max_execution_time', '-1');
+*/
 
 // THIS FILE
 
@@ -52,15 +61,15 @@ ini_set('max_execution_time', '-1');
 
 // INCLUDING PAGES
 
-	$inc_mappa = "_includes";
+	$inc_folder = "_includes";
 	$this_page_array = array();
 
 	$this_page_array[1] = array("QUERY","page_1_form.php");
-	$this_page_array[2] = array("QUERY RESULTS","page_2_analysis_original.php");
+	$this_page_array[2] = array("QUERY RESULTS","page_2_analysis.php");
 	$this_page_array[5] = array("Sources","page_5_sources.php");
 	$this_page_array[6] = array("About us","page_6_aboutus.php");
 
-	$this_page_include = $inc_mappa . "/" . $this_page_array[$this_page][1];
+	$this_page_include = $inc_folder . "/" . $this_page_array[$this_page][1];
 	$this_page_title = $this_page_array[$this_page][0];
 
 // LOGGING
@@ -77,8 +86,8 @@ ini_set('max_execution_time', '-1');
 <title>Ortholog Finder Tool</title>
 <meta name="description" content="A bioinformatics tool that collects evolutionarily conserved proteins, which have been described as a funcional regulators in genome-wide studies previously. Currently it focueses on cell size.">
 <meta name="keywords" content="Orthology Finder Tool, Ortholog, Orthology, evolutionally, conserved, functional ortholgos, orthologous proteins, cell size, cell cycle, systems biology, network biology, kegg database, gene ontology" />
-<meta name="copyright" content="Zoltan Dul, 2015">
-<meta nmae="author" content="https://plus.google.com/+ZoltánDúl">
+<meta name="copyright" content="Zoltan Dul, 2018">
+<meta nmae="author" content="https://twitter.com/ZoliQa">
 <meta name="googlebot" content="index, follow">
 <meta name="robots" content="index, follow">
 <script type="text/javascript" src="_media/js/jquery-1.11.2.min.js"></script>
