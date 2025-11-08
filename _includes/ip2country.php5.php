@@ -49,6 +49,7 @@ class ip2country {
 	public $db_name='';
 	public $db_user='';
 	public $db_pass='';
+	public $db_socket='';
 	public $table_name='ip2c';
 
 	private $ip_num=0;
@@ -63,6 +64,7 @@ class ip2country {
 		$this->db_name = $conf['data'];
 		$this->db_user = $conf['user'];
 		$this->db_pass = $conf['pass'];
+		$this->db_socket = isset($conf['socket']) ? $conf['socket'] : '';
 		$this->set_ip();
 	}
 
@@ -113,6 +115,7 @@ class ip2country {
 
 		$row=mysqli_fetch_assoc($r);
 		$this->close();
+		if(!$row) return '';
 		$this->country_name = $row['country_name'];
 		$this->country_code = $row['country_code'];
 		return $row['country_code'];
@@ -135,7 +138,11 @@ class ip2country {
 
 	public function mysql_con()
 	{
-		$this->con = @mysqli_connect($this->mysql_host,$this->db_user,$this->db_pass);
+		if (!empty($this->db_socket)) {
+			$this->con = @mysqli_connect($this->mysql_host,$this->db_user,$this->db_pass,$this->db_name,0,$this->db_socket);
+		} else {
+			$this->con = @mysqli_connect($this->mysql_host,$this->db_user,$this->db_pass,$this->db_name);
+		}
 
 		if(!$this->con)
 		return false;

@@ -60,12 +60,30 @@ function authenticate() {
 
 header('Content-Type: text/html; charset=UTF-8');
 
-$config['host'] = 'localhost';	// host name
-$config['user'] = 'root';		// database username
-$config['pass'] = 'zolis';		// database password
-$config['data'] = 'ortholog';	// selected database name
+// Load .env file
+$env_file = __DIR__ . '/../.env';
+if (file_exists($env_file)) {
+    $env_lines = file($env_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($env_lines as $line) {
+        if (strpos($line, '#') === 0) continue;
+        if (strpos($line, '=') === false) continue;
+        list($key, $value) = explode('=', $line, 2);
+        $_ENV[trim($key)] = trim($value);
+    }
+}
 
-$mysqli = new mysqli($config['host'], $config['user'], $config['pass'], $config['data']);
+$config['host'] = isset($_ENV['DB_HOST']) ? $_ENV['DB_HOST'] : 'localhost';
+$config['user'] = isset($_ENV['DB_USER']) ? $_ENV['DB_USER'] : 'root';
+$config['pass'] = isset($_ENV['DB_PASS']) ? $_ENV['DB_PASS'] : '';
+$config['data'] = isset($_ENV['DB_NAME']) ? $_ENV['DB_NAME'] : 'ortholog';
+$config['socket'] = isset($_ENV['DB_SOCKET']) ? $_ENV['DB_SOCKET'] : '';
+$config['port'] = isset($_ENV['DB_PORT']) ? intval($_ENV['DB_PORT']) : 0;
+
+if (!empty($config['socket'])) {
+    $mysqli = new mysqli($config['host'], $config['user'], $config['pass'], $config['data'], 0, $config['socket']);
+} else {
+    $mysqli = new mysqli($config['host'], $config['user'], $config['pass'], $config['data']);
+}
 
 if ($mysqli->connect_errno) {
     printf("Cannot connect to the database ::  %s\n", $mysqli->connect_error);

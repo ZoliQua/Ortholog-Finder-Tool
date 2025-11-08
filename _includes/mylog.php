@@ -149,7 +149,7 @@ class MyLogPHP extends ip2country{
 	            $version = $matches['version'][0];
 	        }
 	        else {
-	            $version = $matches['version'][1];
+	            $version = isset($matches['version'][1]) ? $matches['version'][1] : 'Unknown';
 	        }
 	    }
 	    else {
@@ -209,7 +209,7 @@ class MyLogPHP extends ip2country{
 		$this_browser = $this->getBrowser();
 		$this_server = $this->getServer();
 		$debugBacktrace = debug_backtrace();
-		$document_root = $debugBacktrace[1]['file'];
+		$document_root = isset($debugBacktrace[1]['file']) ? $debugBacktrace[1]['file'] : '';
 		$country = ip2country::get_country_name();
 		$ip = ip2country::get_client_ip();
 
