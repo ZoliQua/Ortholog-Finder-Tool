@@ -36,10 +36,10 @@ The Ortholog Finder Tool was developed as part of a PhD project at King's Colleg
 
 **Version 1.1** unifies two previously separate tools into a single application:
 
-| Previously | URL | Now |
+| Previously | Now |
 |---|---|---|
-| Ortholog Finder Tool v1.5 | orthologfindertool.com | **Mode A: Ortholog Search** |
-| GeneOntology Extension Tool v1.0 | go.orthologfindertool.com | **Mode B: GO Extension** |
+| Ortholog Finder Tool v1.5 | **Mode A: Ortholog Search** |
+| GeneOntology Extension Tool v1.0 | **Mode B: GO Extension** |
 
 ---
 
@@ -89,8 +89,7 @@ Gene Ontology annotation extension via eggNOG ortholog groups, visualized with V
 
 | Tool | URL | Status |
 |---|---|---|
-| Ortholog Search (original) | orthologfindertool.com | Online |
-| GO Extension (original) | go.orthologfindertool.com | Online |
+| Ortholog Search & GO Tool | orthologfindertool.com | Online |
 
 ---
 
@@ -308,7 +307,7 @@ The git history of this repository preserves the full commit histories of both o
 **Zoltán Dul**
 PhD Student (2013–2018), King's College London
 
-- 📧 zoltan.dul@kcl.ac.uk / zoltan.dul@gmail.com
+- 📧 zoltan.dul@gmail.com
 
 ### Supervisors & Groups
 

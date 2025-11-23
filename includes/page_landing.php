@@ -51,8 +51,8 @@
 <div style="margin-top: 30px;">
 	<p style="font-size: 12px; color: #888;">
 		Originally published as two separate tools:
-		<a href="http://orthologfindertool.com" target="_blank">orthologfindertool.com</a> &amp;
-		<a href="http://go.orthologfindertool.com" target="_blank">go.orthologfindertool.com</a>
+		orthologfindertool.com &amp;
+		go.orthologfindertool.com
 	</p>
 </div>
 

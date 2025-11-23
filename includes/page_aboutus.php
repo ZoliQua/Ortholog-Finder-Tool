@@ -45,3 +45,14 @@
 </div>
 azeddine.siammour@fmach.it
 <BR>
+
+<div class="page"></div>
+<h3>Thesis</h3>
+<p>
+	<div class="atext">
+	<b>A system-level approach to identify novel cell size regulators</b><BR>
+	Zolt&aacute;n Dul<BR>
+	PhD thesis, King's College London, 2018<BR>
+	<a href="https://kclpure.kcl.ac.uk/portal/en/studentTheses/a-system-level-approach-to-identify-novel-cell-size-regulators/" target="_blank">KCL Pure</a>
+	</div>
+</p>
