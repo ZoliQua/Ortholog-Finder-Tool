@@ -38,8 +38,8 @@ The Ortholog Finder Tool was developed as part of a PhD project at King's Colleg
 
 | Previously | URL | Now |
 |---|---|---|
-| Ortholog Finder Tool v1.5 | [orthologfindertool.com](http://orthologfindertool.com) | **Mode A: Ortholog Search** |
-| GeneOntology Extension Tool v1.0 | [go.orthologfindertool.com](http://go.orthologfindertool.com) | **Mode B: GO Extension** |
+| Ortholog Finder Tool v1.5 | orthologfindertool.com | **Mode A: Ortholog Search** |
+| GeneOntology Extension Tool v1.0 | go.orthologfindertool.com | **Mode B: GO Extension** |
 
 ---
 
@@ -89,8 +89,8 @@ Gene Ontology annotation extension via eggNOG ortholog groups, visualized with V
 
 | Tool | URL | Status |
 |---|---|---|
-| Ortholog Search (original) | [orthologfindertool.com](http://orthologfindertool.com) | Online |
-| GO Extension (original) | [go.orthologfindertool.com](http://go.orthologfindertool.com) | Online |
+| Ortholog Search (original) | orthologfindertool.com | Online |
+| GO Extension (original) | go.orthologfindertool.com | Online |
 
 ---
 
@@ -260,6 +260,10 @@ orthologfindertool-v1.1/
 
 ## 📚 Academic References
 
+### Thesis
+
+Dul, Z. (2018). *A system-level approach to identify novel cell size regulators.* PhD thesis, King's College London. [KCL Pure](https://kclpure.kcl.ac.uk/portal/en/studentTheses/a-system-level-approach-to-identify-novel-cell-size-regulators/)
+
 ### Cell-Size Screen Publications
 
 | Species | Publication | Journal | Year |
@@ -289,9 +293,9 @@ Ashburner M et al. (2000). *Gene Ontology: tool for the unification of biology.*
 
 This tool was originally published as two separate web applications during 2015–2018:
 
-1. **Ortholog Finder Tool** ([orthologfindertool.com](http://orthologfindertool.com)) — Multi-database ortholog search with pathway and screen data integration. Source: [ZoliQua/Ortholog-Finder-Tool](https://github.com/ZoliQua/Ortholog-Finder-Tool)
+1. **Ortholog Finder Tool** (orthologfindertool.com) — Multi-database ortholog search with pathway and screen data integration. Original source: ZoliQua/Ortholog-Finder-Tool
 
-2. **GeneOntology Extension Tool** ([go.orthologfindertool.com](http://go.orthologfindertool.com)) — GO annotation extension via eggNOG ortholog groups with Venn diagram visualization. Source: [ZoliQua/GO-Orthology-Tool](https://github.com/ZoliQua/GO-Orthology-Tool)
+2. **GeneOntology Extension Tool** (go.orthologfindertool.com) — GO annotation extension via eggNOG ortholog groups with Venn diagram visualization. Original source: ZoliQua/GO-Orthology-Tool
 
 **Version 1.1** (November 2025) unifies both tools into a single application with a shared navigation and mode-selection interface. No data or backend logic was changed — only the UI was consolidated.
 
