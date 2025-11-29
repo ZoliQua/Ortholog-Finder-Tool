@@ -69,6 +69,15 @@ Gene Ontology annotation extension via eggNOG ortholog groups, visualized with V
 - **Data:** 75 eggNOG export CSVs + 12 SVG diagram templates
 - **Backend:** MySQL queries against `orthology_databases` and `geneontology` tables
 
+#### Method — Homology/Membership (H/M) Ratio
+
+The GO Extension mode identifies potential gaps in Gene Ontology annotations by computing an **H/M ratio** for each GO term within each orthologous group:
+
+1. **Ortholog group resolution** — Proteins are mapped to COG/KOG orthologous groups via the eggNOG database (v4). UniProt KB accessions serve as the common identifier across all 7 species.
+2. **GO annotation lookup** — For each orthologous group, the tool retrieves GO Slim annotations for all member proteins from the Gene Ontology database.
+3. **H/M score calculation** — For each GO term within a group, the tool computes the ratio of species carrying the annotation (*Homology*) to the total number of species with members in the group (*Membership*). A high H/M ratio combined with a missing annotation in one species suggests a candidate for annotation extension.
+4. **Visualization** — Results are presented in interactive DataTables and Edwards-Venn diagrams (2–7 species) showing the overlap and gaps of annotations across the selected species.
+
 ---
 
 ## 🧫 Model Organisms
@@ -278,6 +287,12 @@ Dul, Z. (2018). *A system-level approach to identify novel cell size regulators.
 
 Ashburner M et al. (2000). *Gene Ontology: tool for the unification of biology.* Nature Genetics, 25(1), 25–29. [doi:10.1038/75556](https://doi.org/10.1038/75556)
 
+### Ortholog & Protein Databases
+
+Powell S, Forslund K, Szklarczyk D, et al. (2014). *eggNOG v4.0: nested orthology inference across 3686 organisms.* Nucleic Acids Research, 42(D1), D231–D239. [PubMed: 24297252](https://pubmed.ncbi.nlm.nih.gov/24297252/)
+
+The UniProt Consortium (2015). *UniProt: a hub for protein information.* Nucleic Acids Research, 43(D1), D99–D106. [PubMed: 25348405](https://pubmed.ncbi.nlm.nih.gov/25348405/)
+
 ### External Code
 
 | Library | Version | License |
@@ -292,9 +307,9 @@ Ashburner M et al. (2000). *Gene Ontology: tool for the unification of biology.*
 
 This tool was originally published as two separate web applications during 2015–2018:
 
-1. **Ortholog Finder Tool** (orthologfindertool.com) — Multi-database ortholog search with pathway and screen data integration. Original source: ZoliQua/Ortholog-Finder-Tool
+1. **Ortholog Finder Tool** (orthologfindertool.com) — Multi-database ortholog search with pathway and screen data integration. Archived source: [ZoliQua/Ortholog-Finder-Tool-Web](https://github.com/ZoliQua/Ortholog-Finder-Tool-Web)
 
-2. **GeneOntology Extension Tool** (go.orthologfindertool.com) — GO annotation extension via eggNOG ortholog groups with Venn diagram visualization. Original source: ZoliQua/GO-Orthology-Tool
+2. **GeneOntology Extension Tool** (go.orthologfindertool.com) — GO annotation extension via eggNOG ortholog groups with Venn diagram visualization. Archived source: [ZoliQua/Ortholog-Finder-Tool-GO](https://github.com/ZoliQua/Ortholog-Finder-Tool-GO)
 
 **Version 1.1** (November 2025) unifies both tools into a single application with a shared navigation and mode-selection interface. No data or backend logic was changed — only the UI was consolidated.
 

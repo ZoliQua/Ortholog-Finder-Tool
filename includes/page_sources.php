@@ -167,7 +167,19 @@
 
 <p><BR></p>
 
-<h3>Source code</h3>
+<div class="page"></div>
+<h3>This tool is a part of my PhD Thesis</h3>
+<p>
+	<div class="atext">
+	<b><i>A system-level approach to identify novel cell size regulators</i></b><BR>
+	<b>Zolt&aacute;n Dul</b> PhD thesis, <i>King's College London</i>, 2019<BR>
+	<a href="https://kclpure.kcl.ac.uk/portal/en/studentTheses/a-system-level-approach-to-identify-novel-cell-size-regulators/" target="_blank">Download from KCL Pure</a>
+	</div>
+</p>
+
+<p><BR></p>
+
+<h3>Source code of the Tool</h3>
 
 <p></p>
 
