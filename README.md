@@ -307,7 +307,7 @@ The UniProt Consortium (2015). *UniProt: a hub for protein information.* Nucleic
 
 This tool was originally published as two separate web applications during 2015–2018:
 
-1. **Ortholog Finder Tool** (orthologfindertool.com) — Multi-database ortholog search with pathway and screen data integration. Archived source: [ZoliQua/Ortholog-Finder-Tool-Web](https://github.com/ZoliQua/Ortholog-Finder-Tool-Web)
+1. **Ortholog Finder Tool** (orthologfindertool.com) — Multi-database ortholog search with pathway and screen data integration. Archived source: [ZoliQua/Ortholog-Finder-Tool-Draft](https://github.com/ZoliQua/Ortholog-Finder-Tool-Draft)
 
 2. **GeneOntology Extension Tool** (go.orthologfindertool.com) — GO annotation extension via eggNOG ortholog groups with Venn diagram visualization. Archived source: [ZoliQua/Ortholog-Finder-Tool-GO](https://github.com/ZoliQua/Ortholog-Finder-Tool-GO)
 
