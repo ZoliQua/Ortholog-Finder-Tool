@@ -58,6 +58,14 @@
 		if (isset($_POST["kuld"])) $this_page = "ortholog_results";
 		else $this_page = "ortholog_form";
 
+	} elseif ($mode == "research") {
+
+		// MODE C: Research Tool (dynamic query from v1-draft)
+		include_once($folderIncl . "/functions.php");
+
+		if (isset($_POST["kuld"])) $this_page = "research_results";
+		else $this_page = "research_form";
+
 	} elseif ($mode == "go") {
 
 		// MODE B: GO Extension Tool
@@ -97,6 +105,8 @@
 		"landing"          => array("ORTHOLOG FINDER TOOL", "page_landing.php"),
 		"ortholog_form"    => array("QUERY — Ortholog Search", "page_ortholog_form.php"),
 		"ortholog_results" => array("QUERY RESULTS", "page_ortholog_results.php"),
+		"research_form"    => array("QUERY — Ortholog Search (Unpublished)", "page_research_form.php"),
+		"research_results" => array("QUERY RESULTS (Research)", "page_research_results.php"),
 		"go_analyzer"      => array("QUERY — GO Extension", "page_go_analyzer.php"),
 		"sources"          => array("References", "page_sources.php"),
 		"about"            => array("About Us", "page_aboutus.php"),

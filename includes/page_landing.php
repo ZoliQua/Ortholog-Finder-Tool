@@ -56,4 +56,26 @@
 	</p>
 </div>
 
+<table class="mode-selector" cellpadding="0" cellspacing="0" border="0">
+<tr>
+	<td width="100%">
+		<a href="main.php?mode=research" class="mode-card">
+			<div class="mode-card-inner" style="border-style: dashed;">
+				<h3>Ortholog Search (Unpublished)</h3>
+				<p class="mode-desc">Dynamic multi-database ortholog query with progressive filtering.
+				Real-time computation across 6 ortholog databases with KEGG pathway cross-referencing
+				and cell-size screen hit integration. Supports 10 query levels from unfiltered to shared-pathway analysis.</p>
+				<div class="mode-details">
+					<span>5 species</span> &middot;
+					<span>6 databases</span> &middot;
+					<span>10 query levels</span> &middot;
+					<span>KEGG pathways</span> &middot;
+					<span>cell-size screens</span>
+				</div>
+			</div>
+		</a>
+	</td>
+</tr>
+</table>
+
 </div>
