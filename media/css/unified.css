@@ -38,11 +38,11 @@ a:hover { text-decoration: underline; color: red;}
 
 #wrapper { margin:0 auto; width:1260px; padding:0;position: relative;}
 #nav {background: none;height:28px; background:url(../images/nav2.png) 0 0 repeat-x; font-family: segoe ui, verdana, arial, sans-serif; text-align:center;  }
-#nav-inside { margin-left: auto; margin-right: auto; width: 750px;  }
+#nav-inside { margin-left: auto; margin-right: auto; width: 960px;  }
 
-#nav ul {margin:0; padding:0; float:left; }
+#nav ul {margin:0; padding:0; display:inline-block; float:none; }
 #nav ul li {list-style:none;float:left;height:28px;position:relative; padding:0; margin:0; border-right: 1px dotted gray;}
-#nav ul li a { display:block;padding:0 15px 0 15px; margin:0; line-height:28px; color:#fff; text-decoration:none;font-size:12px;font-weight: bold; text-transform: uppercase; letter-spacing: 5px;}
+#nav ul li a { display:block;padding:0 12px 0 12px; margin:0; line-height:28px; color:#fff; text-decoration:none;font-size:11px;font-weight: bold; text-transform: uppercase; letter-spacing: 3px;}
 #nav ul li.active a {background:url(../images/nav-a.jpg) 0 0 repeat-x}
 #nav ul li a:hover{ text-decoration: none; background: #09330F; color: #FFF; opacity: 0.746;}
 

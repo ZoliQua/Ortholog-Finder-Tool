@@ -61,7 +61,7 @@
 	<td width="100%">
 		<a href="main.php?mode=research" class="mode-card">
 			<div class="mode-card-inner" style="border-style: dashed;">
-				<h3>Ortholog Search (Unpublished)</h3>
+				<h3>Experimental Ortholog Search (Unpublished)</h3>
 				<p class="mode-desc">Dynamic multi-database ortholog query with progressive filtering.
 				Real-time computation across 6 ortholog databases with KEGG pathway cross-referencing
 				and cell-size screen hit integration. Supports 10 query levels from unfiltered to shared-pathway analysis.</p>

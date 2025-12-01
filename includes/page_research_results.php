@@ -4,11 +4,24 @@
 * Project Name: Ortholog Finder Tool
 * Project Version: 1.1 (Unified)
 *
-* PHP FILE: Research Tool — Dynamic Query Results
+* PHP FILE: Research Tool - Dynamic Query Results
 * (Lekeres engine from v1-draft prototype)
 *
 * All code can be used under GNU General Public License version 2.
 */
+
+// Show errors for debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Increase memory limit for heavy file processing
+ini_set('memory_limit', '256M');
+set_time_limit(120);
+
+// Load Lekeres engine
+if (!class_exists('Lekeres')) {
+	include_once(dirname(__FILE__) . "/functions.php");
+}
 
 // ORGANISMS NAMES & TAXID
 
@@ -41,33 +54,7 @@
 	else
 		$value_lines = strtolower(trim($_POST["p"]));
 
-// DATA FILES
-
-	$mappa = "_dataset/";
-
-	$fajl = array();
-	$fajl["at"] = $mappa . "AT_interact_deg2_exp.csv";
-	$fajl["dm"] = $mappa . "DM_interact_deg2_exp.csv";
-	$fajl["sc"] = $mappa . "SC_interact_deg2_exp.csv";
-	$fajl["sp"] = $mappa . "SP_interact_deg2_exp.csv";
-	$fajl["hs"] = $mappa . "HS_interact_deg2_exp.csv";
-
-	$fajl["data"] = $mappa . "ALL_ortholog_dbs_merged.csv";
-	$fajl["kegg"] = $mappa . "kegg_pathways_uniprot.tsv";
-	$fajl["reac"] = $mappa . "reactome_pathways_uniprot.tsv";
-	$fajl["reg"] = $mappa . "regular_names.txt";
-
-	$values = array("faj_nev" => $value_fajnev, "lines" => $value_lines, "ov" => $value_ov);
-
-// LOGGING
-
-	$log->logging('QUERY (Research)', $faj[$value_fajnev]["mid"], "Details: type:" . $value_ov . ", spec:" . $value_fajnev . ", q-t:" . $value_lines);
-
-// DYNAMIC QUERY
-
-	$lekeres = new Lekeres($fajl, $values);
-
-// QUERY INFO
+// QUERY LABELS
 
 	$query_labels = array(
 		"all" => "(1) All rows",
@@ -87,22 +74,114 @@
 <div class="infobox" style="margin-bottom: 15px;">
 	<b>Query:</b>
 	<?php echo $faj[$value_fajnev]["long"]; ?>
-	(<?php echo strtoupper($value_fajnev); ?>) &middot;
-	<?php echo ($value_ov == "all") ? "Overview (all species)" : "Single species focus"; ?> &middot;
+	(<?php echo strtoupper($value_fajnev); ?>) -
+	<?php echo ($value_ov == "all") ? "Overview (all species)" : "Single species focus"; ?> -
 	Filter: <?php echo $query_labels[$value_lines]; ?>
 </div>
 
 <?php
 
-// PRINT TABLE
+// Force output before heavy computation
+flush();
 
-	echo $lekeres->print_table;
+// DATA FILES
+
+	$mappa = "_dataset/";
+
+	$fajl = array();
+	$fajl["at"] = $mappa . "AT_interact_deg2_exp.csv";
+	$fajl["dm"] = $mappa . "DM_interact_deg2_exp.csv";
+	$fajl["sc"] = $mappa . "SC_interact_deg2_exp.csv";
+	$fajl["sp"] = $mappa . "SP_interact_deg2_exp.csv";
+	$fajl["hs"] = $mappa . "HS_interact_deg2_exp.csv";
+
+	$fajl["data"] = $mappa . "ALL_ortholog_dbs_merged.csv";
+	$fajl["kegg"] = $mappa . "kegg_pathways_uniprot.tsv";
+	$fajl["reac"] = $mappa . "reactome_pathways_uniprot.tsv";
+	$fajl["reg"] = $mappa . "regular_names.txt";
+
+	// Check that data files exist
+	$missing_files = array();
+	foreach ($fajl as $key => $filepath) {
+		if (!file_exists($filepath)) {
+			$missing_files[] = $key . " (" . $filepath . ")";
+		}
+	}
+
+	if (count($missing_files) > 0) {
+		echo '<div class="infobox" style="color: red;">Missing data files: ' . implode(", ", $missing_files) . '</div>';
+	}
+	else {
+
+		// Check Lekeres class exists
+		if (!class_exists('Lekeres')) {
+			echo '<div class="infobox" style="color: red;">Error: Lekeres class not loaded. Check functions.php include.</div>';
+		}
+		else {
+
+			// LOGGING
+			$log->logging('QUERY (Research)', $faj[$value_fajnev]["mid"], "Details: type:" . $value_ov . ", spec:" . $value_fajnev . ", q-t:" . $value_lines);
+
+			if ($value_ov == "all") {
+
+				// OVERVIEW: use pre-computed JSON
+				$overview_json = "_query/jsonquery_overview.txt";
+
+				if (!file_exists($overview_json)) {
+					echo '<div class="infobox" style="color: red;">Error: Pre-computed overview file not found (' . $overview_json . ').</div>';
+				}
+				else {
+
+					// Build overview table headers
+					$faj_headers = array("A.thaliana", "D.melanogaster", "S.cerevisiae", "S.pombe", "H.sapiens");
+					$print_headers = "";
+					foreach ($faj_headers as $fname) {
+						$print_headers .= '<th width="10%">' . $fname . ' <BR> (UniProt id)</th>' . "\n";
+						$print_headers .= '<th width="10%">Paths</th>' . "\n";
+					}
+
+					echo '<table cellpadding="0" cellspacing="0" border="0" class="display" id="research">
+						<thead><tr>' . $print_headers . '</tr></thead>
+						<tbody></tbody>
+						<tfoot><tr>' . $print_headers . '</tr></tfoot>
+					</table>';
 
 ?>
 
 <!--  DATATABLE JAVASCRIPT - START //-->
 	<script type="text/javascript">
+		$(document).ready(function() {
+		    $('#research').dataTable( {
+		        "bProcessing": true,
+		   		"bJQueryUI": true,
+				"sPaginationType": "full_numbers",
+		        "aLengthMenu": [[5, 10, 20, 50, 100, 200, 300, 400, 3000], [5, 10, 20, 50, 100, 200, 300, 400, 3000]],
+		        "sAjaxSource": '<?php print $overview_json; ?>'
+		    } );
+		} );
+	</script>
+<!--  DATATABLE JAVASCRIPT - END //-->
 
+<div class="exec-time" style="margin-top: 10px;">
+	Pre-computed overview data loaded.
+</div>
+
+<?php
+				} // end file_exists overview
+
+			}
+			else {
+
+				// ONE SPECIES: dynamic Lekeres query
+				$values = array("faj_nev" => $value_fajnev, "lines" => $value_lines, "ov" => $value_ov);
+				$lekeres = new Lekeres($fajl, $values);
+
+				echo $lekeres->print_table;
+
+?>
+
+<!--  DATATABLE JAVASCRIPT - START //-->
+	<script type="text/javascript">
 		$(document).ready(function() {
 		    $('#research').dataTable( {
 		        "bProcessing": true,
@@ -112,10 +191,18 @@
 		        "sAjaxSource": '<?php print $lekeres->jsonfile; ?>'
 		    } );
 		} );
-
 	</script>
 <!--  DATATABLE JAVASCRIPT - END //-->
 
 <div class="exec-time" style="margin-top: 10px;">
 	Execution time: <?php echo round(microtime(true) - $time_start, 2); ?> seconds
 </div>
+
+<?php
+
+			} // end one/all branch
+
+		} // end class_exists
+	} // end file check
+
+?>

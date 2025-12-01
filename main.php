@@ -153,6 +153,7 @@
 		<div id="nav-inside">
 		<ul class="menu">
 			<li><a href='<?php print $this_file; ?>?mode=ortholog'>ORTHOLOG SEARCH</a></li>
+			<li><a href='<?php print $this_file; ?>?mode=research'>EXPERIMENTAL</a></li>
 			<li><a href='<?php print $this_file; ?>?mode=go'>GO EXTENSION</a></li>
 			<li><a href='<?php print $this_file; ?>?page=source'>REFERENCES</a></li>
 			<li><a href='<?php print $this_file; ?>?page=about'>ABOUT US</a></li>

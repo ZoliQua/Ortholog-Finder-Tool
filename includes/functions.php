@@ -141,7 +141,7 @@ class FajlBeolvas {
 	}
 }
 
-class Lekeres {
+class Lekeres {
 
 	public $jsonfile;
 	public $kegg = array();
@@ -203,6 +203,81 @@ class Lekeres {
 		$this->files = $files;
 
 		return true;
+	}
+
+	private function Overview($values) {
+
+		$faj = array();
+		$faj["at"] = array("lil" => "AT", "mid" => "A.thaliana", "long" => "Arabidopsis thaliana", "taxid" => "3702");
+		$faj["dm"] = array("lil" => "DM", "mid" => "D.melanogaster", "long" => "Drosophila melanogaster", "taxid" => "7227");
+		$faj["sc"] = array("lil" => "SC", "mid" => "S.cerevisiae", "long" => "Saccharomyces cerevisiae", "taxid" => "559292");
+		$faj["sp"] = array("lil" => "SP", "mid" => "S.pombe", "long" => "Schizosaccharomyces pombe", "taxid" => "4896");
+		$faj["hs"] = array("lil" => "HS", "mid" => "H.sapiens", "long" => "Homo sapiens", "taxid" => "9606");
+
+		$tablazat = array();
+
+		$order = array();
+		$sor = 0;
+
+		foreach ($faj as $key => $arri) {
+
+			$header = array($arri["mid"] . " <BR> (UniProt id)", "Paths");
+			$this->headers = array_merge($this->headers, $header);
+
+			$sor++;
+			$order[$sor] = strtolower($arri["lil"]);
+		}
+
+		foreach ($order as $numero => $faj_lil) {
+
+			foreach ($this->files[$faj_lil]->FileWhole as $faj_unip => $faj_array) {
+
+				$fajsor = array();
+
+				foreach ($order as $num2 => $faj_lil2) {
+
+					if ($faj_lil == $faj_lil2) {
+						$fajsor[$faj_lil2] = array();
+						$fajsor[$faj_lil2][] = self::UniProtNev($faj_unip);
+						$fajsor[$faj_lil2][] = self::PathWays($faj_unip);
+					}
+					else {
+						$fajsor[$faj_lil2] = self::OrthologsOVER($faj_unip, $faj[$faj_lil2]["mid"], $faj[$faj_lil2]["lil"]);
+					}
+				}
+
+				$this_sor = array();
+				foreach ($order as $num3 => $faj_lil3) {
+					$this_sor = array_merge($this_sor, $fajsor[$faj_lil3]);
+				}
+
+				$tablazat[] = $this_sor;
+			}
+		}
+
+		$this->json = json_encode($tablazat);
+
+		return true;
+	}
+
+	private function OrthologsOVER($unip, $fajom, $fajom_lil) {
+
+		$none = array("NONE", "NONE");
+
+		if (!array_key_exists($unip, $this->dbs)) return $none;
+		if (!array_key_exists($fajom, $this->dbs[$unip])) return $none;
+
+		$ret_orths = "";
+		$ret_paths = "";
+
+		foreach ($this->dbs[$unip][$fajom] as $unip2 => $dbs) {
+
+			$ret_orths .= self::UniProtNev($unip2) . "<BR><BR>";
+			$ret_paths .= "<B>" . self::UniProtNev($unip2, true) . "</B><BR>" . self::PathWays($unip2) . "<BR>";
+		}
+
+		if ($ret_orths == "") return $none;
+		return array($ret_orths, $ret_paths);
 	}
 
 	private function OneByOne($values) {

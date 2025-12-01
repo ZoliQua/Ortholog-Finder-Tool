@@ -632,10 +632,10 @@ class QueryGO {
 		$this->strConservedCore .= "</DIV>";
 		$this->strNovelAnnotations .= "</DIV>";
 
-		$this->strTablePrint .= "<BR>\n<div class=\"infobox\">\n<A href=\"#\" target=\"_blank\">Download this table</A> in CSV file.</div><BR>";
-		$this->strTablePrintExpanded .= "<BR>\n<div class=\"infobox\">\n<A href=\"#\" target=\"_blank\">Download this table</A> in CSV file.</div><BR>";
-		$this->strConservedCore.= "<BR>\n<div class=\"infobox\">\n<A href=\"#\" target=\"_blank\">Download this table</A> in CSV file.</div><BR>";
-		$this->strNovelAnnotations .= "<BR>\n<div class=\"infobox\">\n<A href=\"#\" target=\"_blank\">Download this table</A> in CSV file.</div><BR>";
+		$this->strTablePrint .= "";
+		$this->strTablePrintExpanded .= "";
+		$this->strConservedCore.= "";
+		$this->strNovelAnnotations .= "";
 
 		$this->strTablePrint .= $this->strTablePrintExpanded;
 		$this->strTablePrint .= $this->strConservedCore;

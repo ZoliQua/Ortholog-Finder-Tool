@@ -4,7 +4,7 @@
 * Project Name: Ortholog Finder Tool
 * Project Version: 1.1 (Unified)
 *
-* PHP FILE: Research Tool — Query Form
+* PHP FILE: Research Tool - Query Form
 * (Dynamic query engine from v1-draft prototype)
 *
 * All code can be used under GNU General Public License version 2.
@@ -63,7 +63,7 @@
 				<OPTION value="size_mut3">(4c) Above (2) + size mutant start &amp; one size mutant in row</OPTION>
 				<OPTION value="size_mut4">(4d) Above (2) + size mutant start &amp; two size mutants in row</OPTION>
 				<OPTION value="size_mut5">(4e) Above (3) + all in the same</OPTION>
-				<OPTION value="size_mut6">(4f) Experiment filter — for Result 2</OPTION>
+				<OPTION value="size_mut6">(4f) Experiment filter - for Result 2</OPTION>
 				<OPTION value="same">(5) Above (4b) + same pathway across species</OPTION>
 	 		</SELECT> &nbsp;</div>
 	 	</TD>
@@ -77,4 +77,19 @@
     </TR>
 </TABLE>
 </FORM>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#value_c').change(function() {
+		if ($(this).val() == 'all') {
+			$('#value_q').prop('disabled', true).css('opacity', '0.4');
+			$('#k1 .ctext').css('opacity', '0.4');
+		} else {
+			$('#value_q').prop('disabled', false).css('opacity', '1');
+			$('#k1 .ctext').css('opacity', '1');
+		}
+	});
+});
+</script>
+
 </div>

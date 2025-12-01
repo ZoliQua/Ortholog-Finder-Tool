@@ -226,7 +226,7 @@
 
 		$strOutput .= "<BR><BR>\n<H1 stlye=\"center\">New Query</H1><BR>
 			<div class=\"text\">
-			<p style=\"font-style: italic;\">Please select a GO annotation, then 2-7 species with CTRL button (or CMD in Mac) to see their orthological GO analysis<BR> with Gene Ontology Extension Tool. You can choose the visaulization from three options. <BR><div style='color: red;'>CSV download is currently unavailable I'm working on to fix.</div></p><BR>
+			<p style=\"font-style: italic;\">Please select a GO annotation, then 2-7 species with CTRL button (or CMD in Mac) to see their orthological GO analysis<BR> with Gene Ontology Extension Tool. You can choose the visualization from three options.</p><BR>
 			<FORM method=\"POST\" name=\"goext\" action=\"" . $this_file . "\">
 			<input type=\"hidden\" name=\"mode\" value=\"go\">
 			<TABLE align=center border=0 cellpadding=7 cellspacing=0>
