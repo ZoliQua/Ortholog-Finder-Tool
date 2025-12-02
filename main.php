@@ -76,6 +76,10 @@
 
 		$this_page = "go_analyzer";
 
+	} elseif (isset($_GET["page"]) && $_GET["page"] == "data") {
+
+		$this_page = "data_methods";
+
 	} elseif (isset($_GET["page"]) && $_GET["page"] == "source") {
 
 		$this_page = "sources";
@@ -108,6 +112,7 @@
 		"research_form"    => array("QUERY — Ortholog Search (Unpublished)", "page_research_form.php"),
 		"research_results" => array("QUERY RESULTS (Research)", "page_research_results.php"),
 		"go_analyzer"      => array("QUERY — GO Extension", "page_go_analyzer.php"),
+		"data_methods"     => array("Data Methods", "page_data_methods.php"),
 		"sources"          => array("References", "page_sources.php"),
 		"about"            => array("About Us", "page_aboutus.php"),
 	);
@@ -136,6 +141,7 @@
 
 	<script type="text/javascript" src="media/js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="media/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="media/js/jquery.hovercard.min.js"></script>
 	<link rel="stylesheet" href="media/css/unified.css" type="text/css" />
 	<link rel="stylesheet" href="media/css/table.css" type="text/css" />
 	<link rel="stylesheet" href="media/css/table_jui.css" type="text/css" />
@@ -145,16 +151,21 @@
 <body class="background">
 <div id="main">
 	<div id="header-w">
-    	<div id="header"></div>
+    	<div id="header"<?php
+    		if ($mode == "research") echo ' style="background-image:url(media/images/ortholog_logo_EXP.png);"';
+    		elseif ($mode == "go") echo ' style="background-image:url(media/images/ortholog_logo_GO.png);"';
+    	?>></div>
 	</div>
 
 	<div id="wrapper">
 	<div id="nav">
 		<div id="nav-inside">
 		<ul class="menu">
+			<li><a href='<?php print $this_file; ?>'>HOME</a></li>
 			<li><a href='<?php print $this_file; ?>?mode=ortholog'>ORTHOLOG SEARCH</a></li>
 			<li><a href='<?php print $this_file; ?>?mode=research'>EXPERIMENTAL</a></li>
 			<li><a href='<?php print $this_file; ?>?mode=go'>GO EXTENSION</a></li>
+			<li><a href='<?php print $this_file; ?>?page=data'>DATA METHODS</a></li>
 			<li><a href='<?php print $this_file; ?>?page=source'>REFERENCES</a></li>
 			<li><a href='<?php print $this_file; ?>?page=about'>ABOUT US</a></li>
 		</ul>
