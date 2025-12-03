@@ -3,7 +3,7 @@
 
 /*
 * Project Name: Ortholog Finder Tool
-* Project Version: 1.1 (Unified)
+* Project Version: 1.6 (Unified)
 *
 * PHP FILE: Ortholog Search — Results
 * (Originally page_2_analysis.php from v1-web)

@@ -2,7 +2,7 @@
 
 /*
 * Project Name: Ortholog Finder Tool
-* Project Version: 1.1 (Unified)
+* Project Version: 1.6 (Unified)
 *
 * PHP FILE: GO Extension — Analyzer
 * (Originally page_1_analyzer.php from v1-go-web)

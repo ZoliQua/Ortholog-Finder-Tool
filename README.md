@@ -1,15 +1,15 @@
-# Ortholog Finder Tool v1.1
+# Ortholog Finder Tool v1.6
 
 [![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
-[![Version](https://img.shields.io/badge/version-1.1-green.svg)]()
+[![Version](https://img.shields.io/badge/version-1.6-green.svg)]()
 [![PHP](https://img.shields.io/badge/PHP-5.6%2B-777BB4.svg)]()
 [![jQuery](https://img.shields.io/badge/jQuery-1.11.2-0769AD.svg)]()
 [![DataTables](https://img.shields.io/badge/DataTables-1.10.5-336699.svg)]()
 
 A unified bioinformatics web tool for exploring evolutionarily conserved proteins across model organisms. Combines **multi-database ortholog search** with **Gene Ontology annotation extension** via ortholog-based Venn diagram analysis.
 
-> **Thesis:** Dul, Z. (2018). *A system-level approach to identify novel cell size regulators.* King's College London.
-> [KCL Pure](https://kclpure.kcl.ac.uk/portal/en/studentTheses/a-system-level-approach-to-identify-novel-cell-size-regulators/)
+> **PhD Thesis:** Dul, Z. (2019). *A system-level approach to identify novel cell size regulators.* King's College London.
+> Downloand from [KCL Pure](https://kclpure.kcl.ac.uk/portal/en/studentTheses/a-system-level-approach-to-identify-novel-cell-size-regulators/) website 
 
 ---
 
@@ -34,10 +34,10 @@ A unified bioinformatics web tool for exploring evolutionarily conserved protein
 
 The Ortholog Finder Tool was developed as part of a PhD project at King's College London (2013–2018) to systematically identify conserved regulators of cell size across eukaryotic model organisms. It integrates orthologous protein relationships from multiple databases and cross-references them with pathway annotations and genome-wide functional screen data.
 
-**Version 1.1** unifies two previously separate tools into a single application:
+**Version 1.6** unifies two previously separate tools into a single application:
 
 | Previously | Now |
-|---|---|---|
+|---|---|
 | Ortholog Finder Tool v1.5 | **Mode A: Ortholog Search** |
 | GeneOntology Extension Tool v1.0 | **Mode B: GO Extension** |
 
@@ -270,7 +270,7 @@ orthologfindertool-v1.1/
 
 ### Thesis
 
-Dul, Z. (2018). *A system-level approach to identify novel cell size regulators.* PhD thesis, King's College London. [KCL Pure](https://kclpure.kcl.ac.uk/portal/en/studentTheses/a-system-level-approach-to-identify-novel-cell-size-regulators/)
+Dul, Z. (2019). *A system-level approach to identify novel cell size regulators.* PhD thesis, King's College London. [KCL Pure](https://kclpure.kcl.ac.uk/portal/en/studentTheses/a-system-level-approach-to-identify-novel-cell-size-regulators/)
 
 ### Cell-Size Screen Publications
 
@@ -311,7 +311,7 @@ This tool was originally published as two separate web applications during 2015�
 
 2. **GeneOntology Extension Tool** (go.orthologfindertool.com) — GO annotation extension via eggNOG ortholog groups with Venn diagram visualization. Archived source: [ZoliQua/Ortholog-Finder-Tool-GO](https://github.com/ZoliQua/Ortholog-Finder-Tool-GO)
 
-**Version 1.1** (November 2025) unifies both tools into a single application with a shared navigation and mode-selection interface. No data or backend logic was changed — only the UI was consolidated.
+**Version 1.6** (November 2025) unifies both tools into a single application with a shared navigation and mode-selection interface. No data or backend logic was changed — only the UI was consolidated.
 
 The git history of this repository preserves the full commit histories of both original repositories.
 
@@ -319,16 +319,16 @@ The git history of this repository preserves the full commit histories of both o
 
 ## 👤 Author
 
-**Zoltán Dul**
-PhD Student (2013–2018), King's College London
+**Dr. Zoltán Dul**
+Dentist, Phd graduate (2014–2019), King's College London
 
 - 📧 zoltan.dul@gmail.com
 
 ### Supervisors & Groups
 
-- **Cell Cycle & Epigenetics Team** — Prof. N. Shaun B. Thomas, Division of Cancer Studies, King's College London
-- **Csikász-Nagy Group** — Dr. Attila Csikász-Nagy, Randall Division of Cell and Molecular Biophysics, King's College London
-- **Genomics and Biology of Fruit Crop** — Dr. Azeddine Si Ammour, Fondazione Edmund Mach, San Michele all'Adige
+- **Prof. N. Shaun B. Thomas** — Cell Cycle & Epigenetics Team, Division of Cancer Studies, King's College London
+- **Dr. Attila Csikász-Nagy** — Csikász-Nagy Group, Randall Division of Cell and Molecular Biophysics, King's College London
+- **Dr. Azeddine Si Ammour** — Genomics and Biology of Fruit Crop, Fondazione Edmund Mach, San Michele all'Adige
 
 ---
 

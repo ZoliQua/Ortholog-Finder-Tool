@@ -5,7 +5,7 @@
 * *******************
 * Project Name: Ortholog Finder Tool
 * Project Website: http://orthologfindertool.com
-* Project Version: 1.1 (Unified)
+* Project Version: 1.6 (Unified)
 *
 * Project Source Code: https://github.com/ZoliQua/Ortholog-Finder-Tool
 *

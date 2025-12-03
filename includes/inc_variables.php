@@ -5,7 +5,7 @@
 * *******************
 * Project Name: Ortholog Finder Tool (Unified)
 * Project Website: http://orthologfindertool.com
-* Project Version: 1.1
+* Project Version: 1.6
 *
 * Originally from: GeneOntology Extension Tool
 * Original Source Code: https://github.com/ZoliQua/GO-Extension-Tool

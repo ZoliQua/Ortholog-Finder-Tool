@@ -2,7 +2,7 @@
 
 /*
 * Project Name: Ortholog Finder Tool
-* Project Version: 1.1 (Unified)
+* Project Version: 1.6 (Unified)
 *
 * PHP FILE: Data Methods page
 * (Originally include_4_data.php from v1-draft)
